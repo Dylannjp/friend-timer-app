@@ -11,7 +11,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.dylan.friendtimer",
-      "googleServicesFile": "GoogleService-Info"
+      "googleServicesFile": "GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
@@ -23,7 +23,7 @@
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.dylan.friendtimer",
-      "googleServicesFile": "google-services.json"
+      "googleServicesFile": "process.env.GOOGLE_SERVICES_JSON"
     },
     "web": {
       "output": "static",
@@ -51,11 +51,19 @@
         }
       ],
       "@react-native-firebase/app",
+      "@react-native-firebase/crashlytics",
       "@react-native-firebase/auth"
+      
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "83d89abd-afb9-4dc9-8fd8-90ce85d70c31"
+      }
     }
   }
 }

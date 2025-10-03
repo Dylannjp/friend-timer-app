@@ -1,0 +1,70 @@
+export default ({ config }) => ({
+  ...config,
+  name: "friend-timer",
+  slug: "friend-timer",
+  version: "1.0.0",
+  orientation: "portrait",
+  icon: "./assets/images/icon.png",
+  scheme: "friendtimer",
+  userInterfaceStyle: "automatic",
+  newArchEnabled: true,
+  ios: {
+    ...config.ios,
+    supportsTablet: true,
+    bundleIdentifier: "com.dylan.friendtimer",
+    googleServicesFile: "GoogleService-Info.plist"
+  },
+  android: {
+    ...config.android,
+    adaptiveIcon: {
+      backgroundColor: "#E6F4FE",
+      foregroundImage: "./assets/images/android-icon-foreground.png",
+      backgroundImage: "./assets/images/android-icon-background.png",
+      monochromeImage: "./assets/images/android-icon-monochrome.png"
+    },
+    edgeToEdgeEnabled: true,
+    predictiveBackGestureEnabled: false,
+    package: "com.dylan.friendtimer",
+    googleServicesFile: process.env.GOOGLE_SERVICES_JSON
+  },
+  web: {
+    output: "static",
+    favicon: "./assets/images/favicon.png"
+  },
+  plugins: [
+    "expo-router",
+    [
+      "expo-splash-screen",
+      {
+        image: "./assets/images/splash-icon.png",
+        imageWidth: 200,
+        resizeMode: "contain",
+        backgroundColor: "#ffffff",
+        dark: {
+          backgroundColor: "#000000"
+        }
+      }
+    ],
+    [
+      "expo-build-properties",
+      {
+        ios: {
+          useFrameworks: "static"
+        }
+      }
+    ],
+    "@react-native-firebase/app",
+    "@react-native-firebase/crashlytics",
+    "@react-native-firebase/auth"
+  ],
+  experiments: {
+    typedRoutes: true,
+    reactCompiler: true
+  },
+  extra: {
+    router: {},
+    eas: {
+      projectId: "83d89abd-afb9-4dc9-8fd8-90ce85d70c31"
+    }
+  }
+});
