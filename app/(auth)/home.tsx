@@ -2,6 +2,7 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Button, StyleSheet, Text, View } from 'react-native';
+import { MMKV } from 'react-native-mmkv';
 
 export default function TimerScreen() {
     const user = auth().currentUser
@@ -10,6 +11,7 @@ export default function TimerScreen() {
     const [sessionStartTime, setSessionStartTime] = useState<firestore.Timestamp | null>(null);
     const [friendSessionStartTime, setFriendSessionStartTime] = useState<firestore.Timestamp | null>(null);
     const [isLoading, setIsLoading] = useState(true); 
+    const storage = new MMKV()
 
     // Sync up the database and the app's UI
     useEffect(() => {
