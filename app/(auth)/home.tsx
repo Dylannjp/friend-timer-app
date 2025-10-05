@@ -156,6 +156,7 @@ export default function TimerScreen() {
             <View style={styles.buttonContainer}>
                 <Button title="Start Timer" onPress={handleStart} disabled={status === 'Working'} />
                 <Button title="Stop Timer" onPress={handleStop} disabled={status === 'Idle'} />
+                <Button title="Test Widget" onPress={() => storage.set('friend-status', 'testing MMKV')} />
             </View>
 
             <View style={styles.logoutButton}>
